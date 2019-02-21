@@ -2,6 +2,41 @@
 <html>
 <head>
 	<title></title>
+	<script type="text/javascript">
+		function petasincro()
+		{
+			let xhr = new XMLHttpRequest();
+
+			xhr.open("GET", "https://yvone.github.io/DAW/some-numbers.json");
+
+			xhr.onload = function(){
+				if(this.readyState === 4 && this.status === 200){
+
+					let data = JSON.parse(this.responseText);
+
+					Return data.reduce ((sum,i) => sum+i);
+					var multi = data.map(function(data){ return data*10};
+
+
+
+
+				}else{
+
+					alert("ERROR" + this.status);
+				}
+			};
+
+			xhr.onerror = function()
+			{
+
+				alert("la conexion ha fallado")
+			}
+
+			xhr.send();
+		}
+
+
+	</script>
 </head>
 <body>
 <div>
@@ -24,6 +59,10 @@
 	</div>
 	<div>
 		<button><img src="some-assets/assets/scan_gray_icon.png" width="20" height="20"> Begin</button>
+	</div>
+	<div>
+		<button id="alert" type="button" onclick="petasincro()" >simpleAlert</button>
+</form>
 	</div>
 	
 </div>
